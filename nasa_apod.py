@@ -13,7 +13,7 @@ def apod(year,month,day):
                 print(response.status_code)
         download = input('Download as pdf')
         if download == True:
-                open('filename.pdf','wb').write(response.content)#filename is the file in which the image is.
+                open('filename.pdf','wb').write(response.content)#filename is the name of file in which the image is.
 if __name__ == '__main__':
     app.run()
         
