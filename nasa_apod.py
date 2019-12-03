@@ -6,7 +6,8 @@ app = Flask(__name__)
 
 
 def apod():
-        key=api_key.read()
+        api=open(api_key)
+        key=api.read()
         print('Enter the date')
         year=input()
         month=input()
