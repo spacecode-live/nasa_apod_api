@@ -5,21 +5,17 @@ app = Flask(__name__)
 @app.route('/')
 
 
-def apod():
-        api=open(api_key)
-        key=api.read()
-        print('Enter the date')
-        year=input()
-        month=input()
-        day=input()
+def apod(year,month,day):
+        key=api_key.read()
         url=f'https://api.nasa.gov/planetary/apod?date={year}-{month}-{day}&api_key={key}'
         response=requests.get(url, allow_redirects=True)
         if (response.status_code) == 404:
                 print(response.status_code)
         download = input('Download as pdf')
         if download == True:
-                open('filename.pdf','wb').write(response.content)#filename is the name of file in which the image is.
+                #open('filename.pdf','wb').write(response.content)#filename is the file in which the image is.
+                input = PdfFileReader(open(filename,"rb"))
+                output.addPage(input.getPage(page))
 if __name__ == '__main__':
     app.run()
-        
         
