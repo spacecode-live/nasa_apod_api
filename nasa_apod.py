@@ -6,7 +6,8 @@ app = Flask(__name__)
 
 
 def apod(year,month,day):
-        key=api_key.read()
+        akey=api_key.open()
+        key=akey.read()
         url=f'https://api.nasa.gov/planetary/apod?date={year}-{month}-{day}&api_key={key}'
         response=requests.get(url, allow_redirects=True)
         if (response.status_code) == 404:
