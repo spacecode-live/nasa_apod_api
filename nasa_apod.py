@@ -1,13 +1,20 @@
-from flask import Flask, escape, request
+from flask import Flask, escape, request, render_template
 import requests
 app = Flask(__name__)
 
 @app.route('/')
+def myform():
+    return render_template('html_file.html')
+
+@app.route('/', methods=['POST'])
 
 
-def apod(year,month,day):
+def apod():
         akey=api_key.open()
         key=akey.read()
+        year = request.form['year']
+        month = request.form['month']
+        day = request.form['day']
         url=f'https://api.nasa.gov/planetary/apod?date={year}-{month}-{day}&api_key={key}'
         response=requests.get(url, allow_redirects=True)
         if (response.status_code) == 404:
