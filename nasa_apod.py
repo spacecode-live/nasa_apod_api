@@ -12,8 +12,8 @@ def myform():
 
 def apod():
         render_template('html_file.html')
-        #akey=open(api_key)
-        key='8bj3Let2hyQgKRVCG7qfTtMQzEIJeFfPHde2Vra4'#akey.read()
+        akey=open(api_key)
+        key=akey.read()
         year = request.form['year']
         month = request.form['month']
         day = request.form['day']
