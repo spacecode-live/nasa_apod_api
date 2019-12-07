@@ -19,7 +19,7 @@ def apod():
         day = request.form['day']
         url=f'https://api.nasa.gov/planetary/apod?date={year}-{month}-{day}&api_key={key}'
         response=requests.get(url, allow_redirects=True)
-        open("filename.jpg","wb").write(response.content)#filename is the file in which the image is.
+        open("filename.jpg","wb").write(response.content)
         output_img = PdfFileWriter()
         if (response.status_code) == 404:
                 print(response.status_code)
