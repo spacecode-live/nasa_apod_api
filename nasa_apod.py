@@ -11,7 +11,6 @@ def myform():
 
 
 def apod():
-        render_template('html_file.html')
         akey=open(api_key)
         key=akey.read()
         year = request.form['year']
@@ -28,6 +27,7 @@ def apod():
                 file = PdfFileReader(open(filename,"rb"))#filename is the file in which the image is.
                 for i in range(0,file.getNumPages()):
                             output_img.addPage(file.getPage(i))
+        render_template('html_file.html')
 if __name__ == '__main__':
     app.run()
         
